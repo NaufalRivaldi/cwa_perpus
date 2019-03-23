@@ -11,6 +11,7 @@ class User extends CI_Controller {
 
 	public function index()
 	{ 
+        $this->user_model->cek_session();
         $data['user'] = $this->user_model->showAll();
 		$this->load->view('user/index', $data);
     }

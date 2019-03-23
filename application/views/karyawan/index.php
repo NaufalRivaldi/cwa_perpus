@@ -32,21 +32,20 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Username</th>
-                                <th>Stat</th>
+                                <th>Departemen</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($user as $row): ?>
+                            <?php foreach($karyawan as $row): ?>
                             <tr>
                                 <td><?= $no++; ?></td>
                                 <td><?= $row->nama; ?></td>
-                                <td><?= $row->username; ?></td>
-                                <td><?= $row->stat; ?></td>
+                                <td><?= $row->departemen; ?></td>
                                 <td>
-                                    <a href="<?= site_url('user/edit') ?>"><i class="fas fa-cog text-success"></i></a> | 
-                                    <a href="<?= site_url('user/delete') ?>"><i class="fas fa-trash text-danger"></i></a>
+                                    <a href="<?= site_url('karyawan/view') ?>"><i class="fas fa-eye"></i></a> | 
+                                    <a href="<?= site_url('karyawan/edit') ?>"><i class="fas fa-cog text-success"></i></a> | 
+                                    <a href="<?= site_url('karyawan/delete/'.$row->id_karyawan) ?>" onclick="return confirm('Yakin Ingin Menghapus Data?')"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
                             <?php endforeach ?>

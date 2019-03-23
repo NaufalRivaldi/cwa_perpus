@@ -5,14 +5,16 @@
 
     <ul class="list-unstyled components">
         <li>
-            <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="<?= site_url('home/dashboard') ?>"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         </li>
         <li>
             <a href="#admin" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user"></i> Menu Admin</a>
             <ul class="collapse list-unstyled" id="admin">
+                <?php if($this->session->userdata('stat') == 1): ?>
                 <li>
                     <a href="<?= site_url('user') ?>">> User</a>
                 </li>
+                <?php endif ?>
                 <li>
                     <a href="<?= site_url('karyawan') ?>">> Karyawan</a>
                 </li>

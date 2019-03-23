@@ -13,11 +13,29 @@
         <div id="content">
             <!-- navbar -->
             <?php $this->load->view('_part/navbar.php') ?>
+            
+            <!-- with excel -->
+            <div class="container">
+                <div class="row">
+                    <form action="<?= site_url('karyawan/import') ?>" method="POST" enctype = "multipart/form-data">
+                        <div class="form-group row">
+                            <label for="import" class="col-sm-3 col-form-label">Import Excel</label>
+                            <div class="col-sm-6">
+                                <input type="file" name="file" class="form-control">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="submit" name="btn" value="proses" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
+            <!-- manual -->
             <div class="card">
-                <h2 class="card-header"><i class="fas fa-user"></i> Tambah Karyawan</h2>
+                <h2 class="card-header"><i class="fas fa-user"></i> Tambah Karyawan <span class="badge badge-secondary">Manual</span></h2>
                 <div class="card-body">
-                    <form action="<?= site_url('transaksi/peminjaman') ?>" method="POST">
+                    <form action="<?= site_url('karyawan/add') ?>" method="POST">
                         <div class="form-group row">
                             <label for="nama" class="col-sm-2 col-form-label">Nama Karyawan</label>
                             <div class="col-sm-10">

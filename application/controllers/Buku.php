@@ -7,6 +7,8 @@ class Buku extends CI_Controller {
 
         $this->load->model('buku_model');
         $this->load->library('form_validation');
+        $this->load->model('user_model');
+        $this->user_model->cek_session();
     }
 
 	public function index()
