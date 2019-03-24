@@ -17,6 +17,11 @@
             <!-- with excel -->
             <div class="container">
                 <div class="row">
+                    <p>
+                        *Download contoh format excel <a href="<?= base_url('./excel/example.xlsx') ?>" style="color:blue;">disini</a>
+                    </p>
+                </div>
+                <div class="row">
                     <form action="<?= site_url('karyawan/import') ?>" method="POST" enctype = "multipart/form-data">
                         <div class="form-group row">
                             <label for="import" class="col-sm-3 col-form-label">Import Excel</label>

@@ -23,7 +23,7 @@
                     <div class="card text-white bg-success mb-3">
                         <div class="card-header"><i class="fas fa-book"></i></i> Jumlah Buku</div>
                         <div class="card-body">
-                            <h5 class="card-title">0</h5>
+                            <h5 class="card-title"><?= $jml_buku ?> Buku</h5>
                         </div>
                     </div>
                 </div>
@@ -31,13 +31,13 @@
                     <div class="card text-white bg-success mb-3">
                         <div class="card-header"><i class="fas fa-user"></i> Jumlah Karyawan</div>
                         <div class="card-body">
-                            <h5 class="card-title">0</h5>
+                            <h5 class="card-title"><?= $jml_karyawan ?> Orang</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card text-white bg-danger mb-3">
-                        <div class="card-header"><i class="fas fa-undo-alt"></i> Jumlah Kembali</div>
+                        <div class="card-header"><i class="fas fa-undo"></i> Jumlah Peminjaman</div>
                         <div class="card-body">
                             <h5 class="card-title">0</h5>
                         </div>

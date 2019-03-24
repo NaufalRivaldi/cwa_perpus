@@ -5,7 +5,7 @@ class Home extends CI_Controller {
 	public function __construct(){
         parent::__construct();
 
-        $this->load->model('user_model');
+		$this->load->model('user_model');
 	}
 	
 	public function index()
@@ -16,7 +16,10 @@ class Home extends CI_Controller {
 
 	public function dashboard(){
 		$this->user_model->cek_session();
-		$this->load->view('dashboard');
+
+		$data['jml_buku'] = $this->db->get('tb_buku')->num_rows();
+		$data['jml_karyawan'] = $this->db->get('tb_karyawan')->num_rows();
+		$this->load->view('dashboard', $data);
 	}
 
 	public function logout(){
