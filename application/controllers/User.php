@@ -45,4 +45,25 @@ class User extends CI_Controller {
 			redirect('home');
         }
     }
+
+    public function add(){
+        $this->user_model->cek_session();
+
+        $user = $this->user_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($user->rules());
+
+        if($validation->run()){
+            $user->save();
+            redirect('user');
+        }
+
+        redirect('user');
+    }
+
+    public function delete($id){
+        $this->user_model->delete($id);
+
+        redirect('user');
+    }
 }

@@ -22,11 +22,25 @@ class user_model extends CI_Model {
 				'rules' => 'required'
 			]
 		];
-    }
+	}
     
     public function showAll(){
         return $this->db->order_by('nama', 'asc')->get($this->_table)->result();
-    }
+	}
+	
+	public function save(){
+		$post = $this->input->post();
+		$this->nama = $post['nama'];
+		$this->username = $post['username'];
+		$this->pwd = sha1($post['pwd']);
+		$this->stat = $post['stat'];
+
+		return $this->db->insert($this->_table, $this);
+	}
+
+	public function delete($id){
+		return $this->db->delete($this->_table, array('id_user' => $id));
+	}
 
 
     // auth

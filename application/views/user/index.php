@@ -21,7 +21,7 @@
             
             <div class="container">
                 <div class="row">
-                    <a href="<?= site_url('user/add') ?>" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah User</a>
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#user"><i class="fas fa-plus-circle"></i> Tambah User</a>
                 </div>
             </div><br>
             <div class="card">
@@ -43,10 +43,13 @@
                                 <td><?= $no++; ?></td>
                                 <td><?= $row->nama; ?></td>
                                 <td><?= $row->username; ?></td>
-                                <td><?= $row->stat; ?></td>
+                                <td><?= ($row->stat==1) ? 'Super User' : 'Admin' ?></td>
                                 <td>
                                     <a href="<?= site_url('user/edit') ?>"><i class="fas fa-cog text-success"></i></a> | 
-                                    <a href="<?= site_url('user/delete') ?>"><i class="fas fa-trash text-danger"></i></a>
+                                    <?php if($row->nama != $this->session->userdata('username')): ?>
+
+                                        <a href="<?= site_url('user/delete/'.$row->id_user) ?>" onclick="return confirm('Yakin ingin menghapus user?')"><i class="fas fa-trash text-danger"></i></a>
+                                    <?php endif ?>
                                 </td>
                             </tr>
                             <?php endforeach ?>

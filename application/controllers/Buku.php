@@ -16,4 +16,25 @@ class Buku extends CI_Controller {
         $data['buku'] = $this->buku_model->showAll();
 		$this->load->view('buku/index', $data);
     }
+
+    public function add(){
+        $buku = $this->buku_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($buku->rules());
+
+        if($validation->run()){
+            $buku->save();
+            redirect('buku');
+        }
+
+        redirect('buku');
+    }
+
+    public function delete($id){
+        $buku = $this->buku_model;
+        $buku->deleteImage($id);
+        $buku->delete($id);
+
+        redirect('buku');
+    }
 }
