@@ -14,6 +14,12 @@
             <!-- navbar -->
             <?php $this->load->view('_part/navbar.php') ?>
 
+            <div class="container">
+                <div class="row">
+                    <a href="<?= site_url('transaksi/viewpinjam') ?>" class="btn btn-primary"><i class="fas fa-list"></i> List Peminjam</a>
+                </div>
+            </div>
+            <br>
             <div class="card">
                 <h2 class="card-header"><i class="fas fa-book"></i> Peminjaman Buku</h2>
                 <div class="card-body">

@@ -26,6 +26,10 @@ class pinjam_model extends CI_Model {
         ];
     }
 
+    public function showAll(){
+        
+    }
+
     public function save(){
         $post = $this->input->post();
 
@@ -35,6 +39,13 @@ class pinjam_model extends CI_Model {
         $this->stat = 'pinjam';
 
         $row = count($post['id_buku']);
-        for($i=1; $i<=$row)
+        for($i=0; $i<$row; $i++){
+            $this->id_buku = $post['id_buku'][$i];
+            $this->jml = $post['jml'][$i];
+
+            $this->db->insert('tb_peminjaman', $this);
+        }
+
+        return true;
     }
 }

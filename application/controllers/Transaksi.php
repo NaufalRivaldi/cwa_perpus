@@ -27,6 +27,11 @@ class Transaksi extends CI_Controller {
         $this->load->view('transaksi/peminjaman/index', $data);
     }
 
+    public function viewPinjam(){
+        $data['pinjam'] = $this->pinjam_model->showAll();
+        $this->load->view('transaksi/peminjaman/list', $data);
+    }
+
     public function pinjam(){
         $pinjam = $this->pinjam_model;
         $validation = $this->form_validation;
