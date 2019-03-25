@@ -55,6 +55,13 @@ class buku_model extends CI_Model {
         return $this->db->where('id_buku', $id)->get($this->_table)->row();
     }
 
+    public function showByKode($kd_pinjam){
+        $this->db->select('*');
+        $this->db->from('tb_peminjaman');
+        $this->db->join('tb_buku', 'tb_buku.id_buku = tb_peminjaman.id_buku');
+        return $this->db->where('kd_pinjam', $kd_pinjam)->get()->result();
+    }
+
     public function save(){
         $post = $this->input->post();
         $this->kode_buku = $post['kode_buku'];

@@ -8,7 +8,7 @@ class pinjam_model extends CI_Model {
     public $id_karyawan;
     public $kd_pinjam;
     public $tgl;
-    public $jml;
+    public $qty;
     public $stat;
 
     public function rules(){
@@ -27,7 +27,17 @@ class pinjam_model extends CI_Model {
     }
 
     public function showAll(){
-        
+        $this->db->select('*');
+        $this->db->from('tb_peminjaman');
+        $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_peminjaman.id_karyawan');
+        return $this->db->group_by('kd_pinjam')->order_by('kd_pinjam', 'desc')->get()->result();
+    }
+
+    public function showByKode($kd_pinjam){
+        $this->db->select('*');
+        $this->db->from('tb_peminjaman');
+        $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_peminjaman.id_karyawan');
+        return $this->db->group_by('kd_pinjam')->where('kd_pinjam', $kd_pinjam)->get()->row();
     }
 
     public function save(){
@@ -41,11 +51,28 @@ class pinjam_model extends CI_Model {
         $row = count($post['id_buku']);
         for($i=0; $i<$row; $i++){
             $this->id_buku = $post['id_buku'][$i];
-            $this->jml = $post['jml'][$i];
-
-            $this->db->insert('tb_peminjaman', $this);
+            $this->qty = $post['jml'][$i];
+            if($this->minStock($this->id_buku, $this->qty)){
+                $this->db->insert('tb_peminjaman', $this);
+            }
         }
 
-        return true;
+        return $this->kd_pinjam;
+    }
+
+    public function minStock($id_buku, $qty){
+        $buku = $this->db->where('id_buku', $id_buku)->get('tb_buku')->row();
+
+        $jml = $buku->jml;
+        if($jml > $qty){
+            $jml -= $qty;
+            $data = array(
+                'jml' => $jml
+            );
+            $this->db->update('tb_buku', $data, array('id_buku' => $id_buku));
+            return true;
+        }else{
+            return false;
+        }
     }
 }

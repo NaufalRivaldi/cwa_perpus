@@ -32,14 +32,20 @@ class Transaksi extends CI_Controller {
         $this->load->view('transaksi/peminjaman/list', $data);
     }
 
+    public function detailpinjam($kd_pinjam){
+        $data['pinjam'] = $this->pinjam_model->showByKode($kd_pinjam);
+        $data['buku'] = $this->buku_model->showByKode($kd_pinjam);
+        $this->load->view('transaksi/peminjaman/view', $data);
+    }
+
     public function pinjam(){
         $pinjam = $this->pinjam_model;
         $validation = $this->form_validation;
         $validation->set_rules($pinjam->rules());
 
         if($validation->run()){
-            $pinjam->save();
-            redirect('transaksi/peminjaman');
+            $kode = $pinjam->save();
+            redirect('transaksi/detailpinjam/'.$kode);
         }
 
         redirect('transaksi/peminjaman');

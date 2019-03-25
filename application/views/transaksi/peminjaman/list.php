@@ -19,37 +19,32 @@
             <!-- navbar -->
             <?php $this->load->view('_part/navbar.php') ?>
             
-            <div class="container">
-                <div class="row">
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#user"><i class="fas fa-plus-circle"></i> Tambah User</a>
-                </div>
-            </div><br>
             <div class="card">
-                <h2 class="card-header"><i class="fas fa-user"></i> Daftar User</h2>
+                <h2 class="card-header">Daftar Peminjaman</h2>
                 <div class="card-body">
                     <table id="table_id" class="display">
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Kode Pinjam</th>
+                                <th>Tanggal</th>
                                 <th>Nama</th>
-                                <th>Username</th>
-                                <th>Stat</th>
+                                <th>Departemen</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($user as $row): ?>
+                            <?php foreach($pinjam as $row): ?>
                             <tr>
                                 <td><?= $no++; ?></td>
+                                <td><?= $row->kd_pinjam; ?></td>
+                                <td><?= $row->tgl; ?></td>
                                 <td><?= $row->nama; ?></td>
-                                <td><?= $row->username; ?></td>
-                                <td><?= ($row->stat==1) ? 'Super User' : 'Admin' ?></td>
+                                <td><?= $row->departemen; ?></td>
                                 <td>
-                                    <a href="<?= site_url('user/edit') ?>"><i class="fas fa-cog text-success"></i></a> | 
-                                    <?php if($row->nama != $this->session->userdata('username')): ?>
-
-                                        <a href="<?= site_url('user/delete/'.$row->id_user) ?>" onclick="return confirm('Yakin ingin menghapus user?')"><i class="fas fa-trash text-danger"></i></a>
-                                    <?php endif ?>
+                                    <a href="<?= site_url('transaksi/detailpinjam/'.$row->kd_pinjam) ?>"><i class="fas fa-eye"></i></a> | 
+                                    <a href="<?= site_url('transaksi/editpinjam') ?>"><i class="fas fa-cog text-success"></i></a> | 
+                                    <a href="<?= site_url('transaksi/deletepinjam/'.$row->kd_pinjam) ?>" onclick="return confirm('Yakin ingin menghapus peminjaman?')"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
                             <?php endforeach ?>
