@@ -48,7 +48,7 @@ class buku_model extends CI_Model {
     }
     
     public function showAll(){
-        return $this->db->order_by('id_buku', 'desc')->get($this->_table)->result();
+        return $this->db->order_by('judul', 'asc')->get($this->_table)->result();
     }
 
     public function getById($id){
