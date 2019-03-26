@@ -17,7 +17,10 @@
             
             <div class="container">
                 <div class="row">
-                    <a href="#" class="btn btn-success">
+                    <a href="<?= site_url('transaksi/viewpinjam') ?>" class="btn btn-success" style="margin-right:2%">
+                        < Kembali
+                    </a>
+                    <a href="<?= site_url('transaksi/printpinjam/'.$pinjam->kd_pinjam) ?>" target="_BLANK" class="btn btn-success">
                         <i class="fas fa-print"></i> Print Bukti
                     </a>
                 </div>
