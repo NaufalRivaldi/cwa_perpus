@@ -169,8 +169,10 @@ class Transaksi extends CI_Controller {
 
         if($validation->run()){
             $kembali->save();
+            $this->session->set_flashdata('flash', 'kembali');
             redirect('transaksi/pengembalian');
         }
+        $this->session->set_flashdata('flash', 'gagal-kembali');
         redirect('transaksi/pengembalian');
     }
 

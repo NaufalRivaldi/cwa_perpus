@@ -59,7 +59,7 @@ class buku_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('tb_peminjaman');
         $this->db->join('tb_buku', 'tb_buku.id_buku = tb_peminjaman.id_buku');
-        return $this->db->where('kd_pinjam', $kd_pinjam)->get()->result();
+        return $this->db->where('kd_pinjam', $kd_pinjam)->where('stat', 'pinjam')->get()->result();
     }
 
     public function save(){

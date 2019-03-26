@@ -6,6 +6,7 @@ class Buku extends CI_Controller {
         parent::__construct();
 
         $this->load->model('buku_model');
+        $this->load->model('pinjam_model');
         $this->load->library('form_validation');
         $this->load->model('user_model');
         $this->user_model->cek_session();
@@ -28,6 +29,12 @@ class Buku extends CI_Controller {
         }
 
         redirect('buku');
+    }
+
+    public function view($id_buku){
+        $data['buku'] = $this->buku_model->getById($id_buku);
+        $data['pinjam'] = $this->pinjam_model->showByIdBook($id_buku);
+		$this->load->view('buku/view', $data);
     }
 
     public function delete($id){

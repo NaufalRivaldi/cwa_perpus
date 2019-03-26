@@ -40,6 +40,13 @@ class pinjam_model extends CI_Model {
         return $this->db->group_by('kd_pinjam')->where('kd_pinjam', $kd_pinjam)->where('stat', 'pinjam')->get()->row();
     }
 
+    public function showByIdBook($id){
+        $this->db->select('*');
+        $this->db->from('tb_peminjaman');
+        $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_peminjaman.id_karyawan');
+        return $this->db->where('id_buku', $id)->where('stat', 'pinjam')->get()->result();
+    }
+
     public function save(){
         $post = $this->input->post();
 

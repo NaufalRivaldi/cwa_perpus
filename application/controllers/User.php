@@ -34,14 +34,14 @@ class User extends CI_Controller {
 
 				$this->session->set_userdata($new_user);
 
-                $this->session->set_flashdata('login-success', 'Login Berhasil');
-			    redirect('home/dashboard');
+                $this->session->set_flashdata('flash', 'login');
+                redirect('home/dashboard');
             }else{
-                $this->session->set_flashdata('login-gagal', 'Login Gagal');
+                $this->session->set_flashdata('flash', 'login-gagal');
 			    redirect('home');
             }
         }else{
-            $this->session->set_flashdata('login-gagal', 'Login Gagal');
+            $this->session->set_flashdata('flash', 'login-gagal');
 			redirect('home');
         }
     }

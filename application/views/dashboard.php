@@ -39,7 +39,7 @@
                     <div class="card text-white bg-danger mb-3">
                         <div class="card-header"><i class="fas fa-undo"></i> Jumlah Peminjaman</div>
                         <div class="card-body">
-                            <h5 class="card-title">0</h5>
+                            <h5 class="card-title"><?= $jml_pinjam ?> Peminjaman</h5>
                         </div>
                     </div>
                 </div>

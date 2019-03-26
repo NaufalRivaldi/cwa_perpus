@@ -28,6 +28,7 @@ class kembali_model extends CI_Model {
         if(!empty($post['id_buku'])){
             for($i=0; $i<count($post['id_buku']); $i++){
                 $pinjam = $this->db->where('kd_pinjam', $post['kd_pinjam'])->where('id_buku', $post['id_buku'][$i])->get('tb_peminjaman')->row();
+                
                 $this->id_pinjam = $pinjam->id_pinjam;
 
                 $qty = $pinjam->qty;
@@ -49,8 +50,9 @@ class kembali_model extends CI_Model {
                 // update stock buku
                 $this->db->update('tb_peminjaman', $data, array('id_pinjam' => $pinjam->id_pinjam));
 
-                return $this->db->insert('tb_pengembalian', $this);
+                $this->db->insert('tb_pengembalian', $this);
             }
+            return true;
         }
     }
 }

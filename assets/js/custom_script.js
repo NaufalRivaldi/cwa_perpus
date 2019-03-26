@@ -1,24 +1,31 @@
 // sweet alert
 const flashData = $('.flash-data').data('flashdata');
 
-if (flashData == 'login-gagal') {
-	swal({
-		title: "Failed",
-		text: "Login gagal, username dan password tidak valid.",
-		icon: "error",
-		button: "OK",
-	});
-} else if (flashData == 'daftar') {
+if (flashData == 'login') {
 	swal({
 		title: "Success",
-		text: "Daftar berhasil, silahkan login.",
+		text: "Login Berhasil",
 		icon: "success",
 		button: "OK",
 	});
-} else if (flashData == 'daftar-gagal') {
+} else if (flashData == 'login-gagal') {
 	swal({
-		title: "Failed",
-		text: "Daftar gagal, pastikan isi data dengan benar.",
+		title: "Login Gagal",
+		text: "Username dan Password tidak terdaftar!",
+		icon: "error",
+		button: "OK",
+	});
+} else if (flashData == 'kembali') {
+	swal({
+		title: "Success",
+		text: "Buku Sudah Kembali",
+		icon: "success",
+		button: "OK",
+	});
+} else if (flashData == 'gagal-kembali') {
+	swal({
+		title: "Error",
+		text: "Terjadi kesalahan pengembalian",
 		icon: "error",
 		button: "OK",
 	});
