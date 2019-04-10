@@ -9,6 +9,7 @@ class pinjam_model extends CI_Model {
     public $kd_pinjam;
     public $tgl;
     public $qty;
+    public $no_buku;
     public $stat;
 
     public function rules(){
@@ -59,6 +60,7 @@ class pinjam_model extends CI_Model {
         for($i=0; $i<$row; $i++){
             $this->id_buku = $post['id_buku'][$i];
             $this->qty = $post['jml'][$i];
+            $this->no_buku = $post['no_buku'][$i];
             if($this->minStock($this->id_buku, $this->qty)){
                 $this->db->insert('tb_peminjaman', $this);
             }

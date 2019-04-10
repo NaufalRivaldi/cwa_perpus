@@ -106,7 +106,7 @@ class Transaksi extends CI_Controller {
         $i = 1;
         foreach($buku as $row){
             $pdf->Cell(20,6,$i++,1,0);
-            $pdf->Cell(140,6,$row->judul,1,0);
+            $pdf->Cell(140,6,$row->no_buku." | ".$row->judul,1,0);
             $pdf->Cell(27,6,$row->qty.' Pcs',1,1);
         }
 

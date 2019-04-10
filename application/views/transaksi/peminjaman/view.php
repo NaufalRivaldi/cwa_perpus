@@ -51,7 +51,7 @@
                             <td>
                                 <ol>
                                     <?php foreach($buku as $row): ?>
-                                        <li><?=$row->judul ?> | Qty : <?=$row->qty ?></li>
+                                        <li><?=$row->no_buku ?> | <?=$row->judul ?> | Qty : <?=$row->qty ?></li>
                                     <?php endforeach ?>
                                 </ol>
                             </td>

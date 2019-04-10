@@ -27,7 +27,7 @@
                         <div class="form-group row">
                             <label for="peminjam" class="col-sm-2 col-form-label">Kode Pinjam</label>
                             <div class="col-sm-10">
-                                <input type="text" name="kd_pinjam" class="form-control" value="<?= $kd_pinjam ?>">
+                                <input type="text" name="kd_pinjam" class="form-control" value="<?= $kd_pinjam ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -52,7 +52,7 @@
                             <div id="form-plus">
                                 <div class="form-group row">
                                     <label for="buku" class="col-sm-1 col-form-label">judul</label>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-3">
                                         <select name="id_buku[]" id="buku" class="form-control">
                                             <option value="">Pilih Buku</option>
                                             <?php foreach($buku as $row): ?>
@@ -64,7 +64,11 @@
                                     <div class="col-sm-2">
                                         <input type="number" name="jml[]" class="form-control">
                                     </div>
+                                    <label for="buku" class="col-sm-1 col-form-label">Kode</label>
                                     <div class="col-sm-3">
+                                        <input type="text" name="no_buku[]" class="form-control">
+                                    </div>
+                                    <div class="col-sm-1">
                                         <a href="#" class="btn btn-success" id="plus">+</a>
                                     </div>
                                 </div>
@@ -94,7 +98,7 @@
             var i = 1;
             $('#plus').click(function (e) {
                 e.preventDefault();
-                $('#form-plus').append('<div class="form-group row" id="row'+i+'"><label for="buku" class="col-sm-1 col-form-label">judul</label><div class="col-sm-5"><select name="id_buku[]" id="buku" class="form-control"><option value="">Pilih Buku</option><?php foreach($buku as $row): ?><option value="<?= $row->id_buku ?>"><?= $row->judul ?></option><?php endforeach ?></select></div><label for="buku" class="col-sm-1 col-form-label">Qty</label><div class="col-sm-2"><input type="number" name="jml[]" class="form-control"></div><div class="col-sm-3"><a href="#" class="btn btn-danger remove" id="'+i+'">-</a></div></div>');
+                $('#form-plus').append('<div class="form-group row" id="row'+i+'"><label for="buku" class="col-sm-1 col-form-label">judul</label><div class="col-sm-3"><select name="id_buku[]" id="buku" class="form-control"><option value="">Pilih Buku</option><?php foreach($buku as $row): ?><option value="<?= $row->id_buku ?>"><?= $row->judul ?></option><?php endforeach ?></select></div><label for="buku" class="col-sm-1 col-form-label">Qty</label><div class="col-sm-2"><input type="number" name="jml[]" class="form-control"></div><label for="buku" class="col-sm-1 col-form-label">Kode</label><div class="col-sm-3"><input type="text" name="no_buku[]" class="form-control"></div><div class="col-sm-1"><a href="#" class="btn btn-danger remove" id="'+i+'">-</a></div></div>');
 
                 i++;
             });

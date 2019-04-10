@@ -42,9 +42,12 @@
                                 <td><?= $row->nama; ?></td>
                                 <td><?= $row->departemen; ?></td>
                                 <td>
-                                    <a href="<?= site_url('transaksi/detailpinjam/'.$row->kd_pinjam) ?>"><i class="fas fa-eye"></i></a> | 
+                                    <a href="<?= site_url('transaksi/detailpinjam/'.$row->kd_pinjam) ?>"><i class="fas fa-eye"></i></a>
+                                    <?php if($this->session->userdata('stat') == 1): ?> 
+                                    | 
                                     <a href="<?= site_url('transaksi/editpinjam') ?>"><i class="fas fa-cog text-success"></i></a> | 
                                     <a href="<?= site_url('transaksi/deletepinjam/'.$row->kd_pinjam) ?>" onclick="return confirm('Yakin ingin menghapus peminjaman?')"><i class="fas fa-trash text-danger"></i></a>
+                                    <?php endif ?>
                                 </td>
                             </tr>
                             <?php endforeach ?>
