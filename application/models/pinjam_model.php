@@ -31,7 +31,7 @@ class pinjam_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('tb_peminjaman');
         $this->db->join('tb_karyawan', 'tb_karyawan.id_karyawan = tb_peminjaman.id_karyawan');
-        return $this->db->group_by('kd_pinjam')->order_by('kd_pinjam', 'desc')->where('stat', 'pinjam')->get()->result();
+        return $this->db->group_by('kd_pinjam')->order_by('id_pinjam', 'desc')->where('stat', 'pinjam')->get()->result();
     }
 
     public function showByKode($kd_pinjam){

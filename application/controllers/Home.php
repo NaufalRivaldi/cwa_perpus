@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 
 		$data['jml_buku'] = $this->db->get('tb_buku')->num_rows();
 		$data['jml_karyawan'] = $this->db->get('tb_karyawan')->num_rows();
-		$data['jml_pinjam'] = $this->db->where('stat', 'pinjam')->get('tb_peminjaman')->num_rows();
+		$data['jml_pinjam'] = $this->db->where('stat', 'pinjam')->group_by('kd_pinjam')->get('tb_peminjaman')->num_rows();
 		$this->load->view('dashboard', $data);
 	}
 

@@ -62,7 +62,7 @@
                                         <div class="form-check">
                                             <input name="id_buku[]" class="form-check-input" type="checkbox" value="<?= $row->id_buku ?>" id="defaultCheck1" checked>
                                             <label class="form-check-label" for="defaultCheck1">
-                                                <?= $row->judul ?>
+                                                <?= $row->no_buku." | ".$row->judul ?>
                                             </label>
                                         </div>
                                     </div>
