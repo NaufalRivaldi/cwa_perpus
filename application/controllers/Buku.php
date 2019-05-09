@@ -31,6 +31,21 @@ class Buku extends CI_Controller {
         redirect('buku');
     }
 
+    public function edit($id=null){
+        $buku = $this->buku_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($buku->rules());
+
+        if($validation->run()){
+            $buku->update();
+            redirect('buku');
+        }
+
+        $data['buku'] = $this->buku_model->getById($id);
+
+        $this->load->view('buku/edit', $data);
+    }
+
     public function view($id_buku){
         $data['buku'] = $this->buku_model->getById($id_buku);
         $data['pinjam'] = $this->pinjam_model->showByIdBook($id_buku);

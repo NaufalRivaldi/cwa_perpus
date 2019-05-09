@@ -81,6 +81,27 @@ class buku_model extends CI_Model {
         return $this->db->insert($this->_table, $this);
     }
 
+    public function update(){
+        $post = $this->input->post();
+
+        $id = $post['id_buku'];
+        $this->kode_buku = $post['kode_buku'];
+        $this->judul = $post['judul'];
+
+        if(!empty($_FILES['gambar']['name'])){
+            $this->gambar = $this->uploadGambar();
+        }else{
+            $this->gambar = $post['gambar-old'];
+        }
+
+        $this->pengarang = $post['pengarang'];
+        $this->penerbit = $post['penerbit'];
+        $this->jml = $post['jml'];
+        $this->keterangan = $post['keterangan'];
+
+        return $this->db->where('id_buku', $id)->update($this->_table, $this);
+    }
+
     public function delete($id){
         return $this->db->delete($this->_table, array('id_buku' => $id));
     }
