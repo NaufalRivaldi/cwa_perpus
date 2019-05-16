@@ -29,4 +29,11 @@ if (flashData == 'login') {
 		icon: "error",
 		button: "OK",
 	});
+} else if (flashData == 'stock-kosong') {
+	swal({
+		title: "Error",
+		text: "Stock tidak mencukupi untuk dipinjam!",
+		icon: "error",
+		button: "OK",
+	});
 }

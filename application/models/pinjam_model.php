@@ -63,6 +63,9 @@ class pinjam_model extends CI_Model {
             $this->no_buku = $post['no_buku'][$i];
             if($this->minStock($this->id_buku, $this->qty)){
                 $this->db->insert('tb_peminjaman', $this);
+            }else{
+                $this->session->set_flashdata('flash', 'stock-kosong');
+                redirect('transaksi/peminjaman');
             }
         }
 
@@ -89,7 +92,7 @@ class pinjam_model extends CI_Model {
         $buku = $this->db->where('id_buku', $id_buku)->get('tb_buku')->row();
 
         $jml = $buku->jml;
-        if($jml > $qty){
+        if($jml >= $qty){
             $jml -= $qty;
             $data = array(
                 'jml' => $jml
