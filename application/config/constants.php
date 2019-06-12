@@ -85,4 +85,4 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 // web
-define('APP_NAME', 'Perpustakaan CWA');
+define('APP_NAME', 'Warehouse GA');

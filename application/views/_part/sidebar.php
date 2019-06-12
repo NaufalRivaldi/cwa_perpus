@@ -20,22 +20,44 @@
                 </li>
             </ul>
         </li>
+
+        <!-- Perpus -->
         <li>
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-money-check"></i> Transaksi</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
+            <a href="#perpus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-money-check"></i> Perpustakaan</a>
+            <ul class="collapse list-unstyled" id="perpus">
                 <li>
-                    <a href="<?= site_url('transaksi/peminjaman') ?>">> Peminjaman</a>
-                </li>
-                <li>
-                    <a href="<?= site_url('transaksi/pengembalian') ?>">> Pengembalian</a>
-                </li>
-                <li>
-                    <a href="<?= site_url('transaksi/perpanjangan') ?>">> Perpanjangan</a>
+                    <li>
+                        <a href="#trans" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-money-check"></i> Transaksi</a>
+                        <ul class="collapse list-unstyled" id="trans">
+                            <li>
+                                <a href="<?= site_url('transaksi/peminjaman') ?>">> Peminjaman</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url('transaksi/pengembalian') ?>">> Pengembalian</a>
+                            </li>
+                            <li>
+                                <a href="<?= site_url('transaksi/perpanjangan') ?>">> Perpanjangan</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="<?= site_url('buku') ?>"><i class="fas fa-book"></i> Daftar Buku</a>
+                    </li>
                 </li>
             </ul>
         </li>
+
+        <!-- Baju -->
         <li>
-            <a href="<?= site_url('buku') ?>"><i class="fas fa-book"></i> Daftar Buku</a>
+            <a href="#baju" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-tshirt"></i> Baju</a>
+            <ul class="collapse list-unstyled" id="baju">
+                <li>
+                    <a href="<?= site_url('baju/data') ?>">> Data Baju</a>
+                </li>
+                <li>
+                    <a href="<?= site_url('baju') ?>">> List Baju</a>
+                </li>
+            </ul>
         </li>
     </ul>
     <p style="font-size:0.8em; padding:10px;">

@@ -19,5 +19,24 @@
         });
 
         $('#table_id').DataTable();
+        $('.table_id').DataTable();
+
+        // checkbox
+        var checkbox = $('.chck');
+        checkbox.change(function(){
+            var countcb = checkbox.filter(':checked').length;
+            // hapus
+            $('.qty').empty();
+
+            // tambah
+            var text="";
+            var i=0;
+            var no=1;
+            for(i; i<countcb; i++){
+                text += "<input type='number' name='jml[]' class='form-control col-8' placeholder='Ukuran "+no+"'><br>";
+                no++;
+            }
+            $('.qty').append(text);
+        });
     });
 </script>

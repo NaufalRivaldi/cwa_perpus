@@ -13,7 +13,7 @@
                 <center>
                     <img src="<?= base_url('assets/img/icon.png') ?>" alt="logo" width="100px">
                 </center><br>
-                <h3>Login Perpustakaan CWA</h3>
+                <h3>Login Warehouse GA</h3>
                 <hr>
                 <form action="<?= site_url('user/login') ?>" method="POST">
                     <div class="form-group">

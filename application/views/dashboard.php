@@ -15,7 +15,7 @@
             <!-- navbar -->
             <?php $this->load->view('_part/navbar.php') ?>
             
-            <h1>Selamat datang di Sistem Informasi Perpustakaan</h1>
+            <h1>Selamat datang di Warehouse GA</h1>
             <h2>PT. CITRA WARNA JAYA ABADI</h2>
             <hr>
             <div class="row">

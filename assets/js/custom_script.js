@@ -36,4 +36,25 @@ if (flashData == 'login') {
 		icon: "error",
 		button: "OK",
 	});
+} else if (flashData == 'ambil-berhasil') {
+	swal({
+		title: "Success",
+		text: "Baju Telah Diambil",
+		icon: "success",
+		button: "OK",
+	});
+} else if (flashData == 'tukar-berhasil') {
+	swal({
+		title: "Success",
+		text: "Baju Telah Ditukar",
+		icon: "success",
+		button: "OK",
+	});
+} else if (flashData == 'hapus') {
+	swal({
+		title: "Success",
+		text: "Data Berhasil di Hapus.",
+		icon: "success",
+		button: "OK",
+	});
 }
