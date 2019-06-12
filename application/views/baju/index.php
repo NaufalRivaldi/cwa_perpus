@@ -31,10 +31,11 @@
             </div>
             <hr>
             <h2><i class="fas fa-tshirt"></i> Seragam Citra Warna</h2><br>
+            <?php foreach($group as $data): ?>
             <div class="card">
-                <h2 class="card-header"><i class="fas fa-tshirt"></i> Seragam Citra Warna</h2>
+                <h4 class="card-header"><?= $data->nama_baju ?></h4>
                 <div class="card-body">
-                    <table id="table_id" class="display">
+                    <table class="table_id" class="display">
                         <thead>
                             <tr>
                                 <th>Warna</th>
@@ -47,6 +48,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php  
+                                $baju = $this->db->where('nama_baju', $data->nama_baju)->get('tb_baju')->result();
+                            ?>
                             <?php foreach($baju as $row): ?>
                             <?php 
                                 $ambil = $this->helper->ambil($row->id_baju);
@@ -69,6 +73,8 @@
                     </table>
                 </div>
             </div>
+            <br>
+            <?php endforeach ?>
         </div>
     </div>
 

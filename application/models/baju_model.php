@@ -41,9 +41,9 @@ class baju_model extends CI_Model {
     public function showAll(){
         return $this->db->order_by('nama_baju', 'asc')->get($this->_table)->result();
     }
-
+    // 
     public function showAllGroup(){
-        return $this->db->order_by('nama_baju', 'asc')->group_by('nama_baju')->get($this->_table)->result();
+        return $this->db->group_by('nama_baju')->get($this->_table)->result();
     }
 
     public function getById($id){

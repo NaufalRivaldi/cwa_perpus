@@ -13,14 +13,12 @@ class Baju extends CI_Controller {
         $this->load->library('form_validation');
         $this->user_model->cek_session();
     }
-
+    // 
 	public function index()
 	{ 
         $data['tanggal'] = date('Y-m-d');
         $data['kode'] = $this->kode();
         $data['kode_tukar'] = $this->kodeTukar();
-
-        $data['baju'] = $this->baju_model->showAll();
         $data['group'] = $this->baju_model->showAllGroup();
 		$this->load->view('baju/index', $data);
     }
