@@ -20,6 +20,7 @@ class Baju extends CI_Controller {
         $data['kode'] = $this->kode();
         $data['kode_tukar'] = $this->kodeTukar();
         $data['group'] = $this->baju_model->showAllGroup();
+        $data['baju'] = $this->baju_model->showAll();
 		$this->load->view('baju/index', $data);
     }
 
