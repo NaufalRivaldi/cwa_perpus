@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper" style="background:#fff">
         <!-- Sidebar Holder -->
         <?php $this->load->view('_part/sidebar.php') ?>
 
@@ -18,7 +18,7 @@
             <h1>Selamat datang di Warehouse GA</h1>
             <h2>PT. CITRA WARNA JAYA ABADI</h2>
             <hr>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-4">
                     <div class="card text-white bg-success mb-3">
                         <div class="card-header"><i class="fas fa-book"></i></i> Jumlah Buku</div>
@@ -43,7 +43,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+            <img src="<?= base_url('assets/img/beruang.gif') ?>" alt="" width="30%">
         </div>
     </div>
 

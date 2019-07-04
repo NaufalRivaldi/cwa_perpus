@@ -35,7 +35,7 @@
             <div class="card">
                 <h4 class="card-header"><?= $data->nama_baju ?></h4>
                 <div class="card-body">
-                    <table class="table_id" class="display">
+                    <table class="table_id table-striped" class="display">
                         <thead>
                             <tr>
                                 <th>Warna</th>

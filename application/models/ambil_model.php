@@ -30,11 +30,28 @@ class ambil_model extends CI_Model {
         ];
     }
 
+    public function rulesKembali(){
+        return [
+            [
+                'field' => 'id_baju',
+                'label' => 'id_baju',
+                'rules' => 'required'
+            ]
+        ];
+    }
+
     public function getById($id){
         $this->db->select('*');
         $this->db->from('tb_baju');
         $this->db->join('tb_transaksi_ambil', 'tb_transaksi_ambil.id_baju = tb_baju.id_baju');
         return $this->db->where('tb_transaksi_ambil.id_baju', $id)->order_by('tgl', 'desc')->get()->result();
+    }
+
+    public function getAmbil($id){
+        $this->db->select('*');
+        $this->db->from('tb_baju');
+        $this->db->join('tb_transaksi_ambil', 'tb_transaksi_ambil.id_baju = tb_baju.id_baju');
+        return $this->db->where('tb_transaksi_ambil.id_ta', $id)->get()->row();
     }
     
     public function save(){
@@ -53,6 +70,29 @@ class ambil_model extends CI_Model {
                     $this->db->insert($this->_table, $this);
                 }
             }
+        }
+    }
+
+    public function saveKembali(){
+        $post = $this->input->post();
+
+        $this->kd_transaksi = $post['kd_transaksi'];
+        $this->tgl = date('Y-m-d');
+        $this->keterangan = $post['keterangan'];
+        $this->id_baju = $post['id_baju'];
+        $this->qty = $post['qty'];
+
+        $id = $post['id_ta'];
+        $id_baju2 = $post['id_baju2'];
+        
+        // min
+        if($this->min($this->id_baju, $this->qty)){
+            $this->db->insert($this->_table, $this);
+        }
+
+        // plus
+        if($this->plus($id_baju2, $this->qty)){
+            $this->db->where('id_ta', $id)->delete($this->_table);
         }
     }
 

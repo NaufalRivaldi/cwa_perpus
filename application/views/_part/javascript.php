@@ -1,4 +1,4 @@
-<script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Popper.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
@@ -37,6 +37,15 @@
                 no++;
             }
             $('.qty').append(text);
+        });
+
+        // button kembali
+        $('.kembali').click(function(){
+            var id = $(this).data('id');
+            $.get("<?= site_url('baju/kembalibaju/') ?>"+id+"", function(data, status){
+                $('.isi-form').empty();
+                $('.isi-form').html(data);
+            });
         });
     });
 </script>

@@ -294,5 +294,42 @@
 </div>
 <!-- tukar -->
 
+<!-- kembali -->
+<div class="modal fade" id="kembali" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalCenterTitle">Baju Yang Kembali</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= site_url('baju/addKembali') ?>" method="POST" enctype="multipart/form-data">
+          <div class="isi-form"></div>
+          
+          <hr>
+          <div class="form-group row">
+              <label for="buku" class="col-sm-3 col-form-label">Baju Pengganti</label>
+              <div class="col-sm-9">
+                  <select name="id_baju" id="baju" class="form-control">
+                      <option value="">Pilih Baju</option>
+                      <?php foreach($bajuall as $row): ?>
+                          <option value="<?= $row->id_baju ?>"><?= $row->nama_baju ?> - <?= $row->uk ?></option>
+                      <?php endforeach ?>
+                  </select>
+                  <p class="text text-warning">* Qty menyesuaikan dengan yang ditukar.</p>
+              </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12"><input type="submit" name="btn" value="Simpan" class="btn btn-primary btn-block"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- kembali -->
+
 <!-- flash data -->
 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>

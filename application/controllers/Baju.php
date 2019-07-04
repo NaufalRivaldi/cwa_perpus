@@ -29,10 +29,42 @@ class Baju extends CI_Controller {
         $baju = $this->baju_model->getById($id);
         $data['historia'] = $this->ambil_model->getById($baju->id_baju);
         $data['historit'] = $this->tukar_model->getById($baju->id_baju);
+        $data['bajuall'] = $this->baju_model->showAll();
 		$this->load->view('baju/view_baju', $data);
     }
 
-    // public function 
+    public function kembalibaju($id){
+        $data = $this->ambil_model->getAmbil($id);
+        echo "
+        <input type='hidden' name='keterangan' class='form-control col-4' value='$data->keterangan'>
+        <input type='hidden' name='id_baju2' class='form-control col-4' value='$data->id_baju'>
+        <input type='hidden' name='id_ta' class='form-control col-4' value='$data->id_ta'>
+        <div class='form-group row'>
+            <label for='nama' class='col-sm-3 col-form-label'>Kode Transaksi</label>
+            <div class='col-sm-9'>
+            <input type='text' name='kd_transaksi' class='form-control col-4' value='$data->kd_transaksi' readonly>
+            </div>
+        </div>
+        <div class='form-group row'>
+            <label for='nama' class='col-sm-3 col-form-label'>Baju Kembali</label>
+            <div class='col-sm-9'>
+            <input type='text' name='' class='form-control col-6' value='$data->nama_baju' readonly>
+            </div>
+        </div>
+        <div class='form-group row'>
+            <label for='nama' class='col-sm-3 col-form-label'>Ukuran</label>
+            <div class='col-sm-9'>
+            <input type='text' name='' class='form-control col-4' value='$data->uk' readonly>
+            </div>
+        </div>
+        <div class='form-group row'>
+            <label for='nama' class='col-sm-3 col-form-label'>Qty</label>
+            <div class='col-sm-9'>
+            <input type='text' name='qty' class='form-control col-2' value='$data->qty' readonly>
+            </div>
+        </div>
+        ";
+    }
 
     public function data()
 	{   
@@ -48,6 +80,20 @@ class Baju extends CI_Controller {
         if($validation->run()){
             $baju->save();
             redirect('baju/data');
+        }
+
+        echo "Gagal";
+    }
+
+    public function addKembali(){
+        $ambil = $this->ambil_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($ambil->rulesKembali());
+
+        if($validation->run()){
+            $ambil->saveKembali();
+            $this->session->set_flashdata('flash','kembali-berhasil');
+            redirect('baju/');
         }
 
         echo "Gagal";

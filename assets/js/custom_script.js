@@ -57,4 +57,11 @@ if (flashData == 'login') {
 		icon: "success",
 		button: "OK",
 	});
+} else if (flashData == 'kembali-berhasil') {
+	swal({
+		title: "Success",
+		text: "Baju Telah Kembali dan Ditukar dengan yang sesuai.",
+		icon: "success",
+		button: "OK",
+	});
 }

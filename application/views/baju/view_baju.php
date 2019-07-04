@@ -48,7 +48,7 @@
             <div class="card">
                 <h3 class="card-header"><i class="fas fa-tshirt"></i> Ambil</h3>
                 <div class="card-body">
-                    <table class="table_id" class="display">
+                    <table class="table_id table-striped" class="display">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -70,6 +70,7 @@
                                 <td><?= $row->qty; ?></td>
                                 <td><?= $row->keterangan; ?></td>
                                 <td>
+                                    <button class="btn btn-warning kembali" data-id="<?= $row->id_ta ?>" data-toggle="modal" data-target="#kembali">Kembali</button> | 
                                     <a href="<?= site_url('baju/deleteambil/'.$row->id_ta) ?>" onclick="return confirm('Yakin ingin menghapus data?')"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
@@ -82,7 +83,7 @@
             <div class="card">
                 <h3 class="card-header"><i class="fas fa-tshirt"></i> Tukar</h3>
                 <div class="card-body">
-                    <table class="table_id" class="display">
+                    <table class="table_id table-striped" class="display">
                         <thead>
                             <tr>
                                 <th>No</th>
