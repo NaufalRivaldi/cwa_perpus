@@ -84,15 +84,32 @@ class ambil_model extends CI_Model {
 
         $id = $post['id_ta'];
         $id_baju2 = $post['id_baju2'];
-        
-        // min
-        if($this->min($this->id_baju, $this->qty)){
-            $this->db->insert($this->_table, $this);
-        }
+        $qty_awal = $post['qty_awal'];
 
-        // plus
-        if($this->plus($id_baju2, $this->qty)){
-            $this->db->where('id_ta', $id)->delete($this->_table);
+        if($this->qty > $qty_awal){
+            $this->session->set_flashdata('flash','kembali-lebih');
+            redirect('baju/');
+        } else if($this->qty == $qty_awal){
+            // min
+            if($this->min($this->id_baju, $this->qty)){
+                $this->db->insert($this->_table, $this);
+            }
+
+            // plus
+            if($this->plus($id_baju2, $this->qty)){
+                $this->db->where('id_ta', $id)->delete($this->_table);
+            }
+        } else if($this->qty < $qty_awal){
+            // min
+            if($this->min($this->id_baju, $this->qty)){
+                $this->db->insert($this->_table, $this);
+            }
+
+            // plus
+            if($this->plus($id_baju2, $this->qty)){
+                $array = array('qty'=>$this->qty);
+                $this->db->where('id_ta', $id)->update($this->_table, $array);
+            }   
         }
     }
 

@@ -38,6 +38,7 @@ class Baju extends CI_Controller {
         echo "
         <input type='hidden' name='keterangan' class='form-control col-4' value='$data->keterangan'>
         <input type='hidden' name='id_baju2' class='form-control col-4' value='$data->id_baju'>
+        <input type='hidden' name='qty_awal' class='form-control col-4' value='$data->qty'>
         <input type='hidden' name='id_ta' class='form-control col-4' value='$data->id_ta'>
         <div class='form-group row'>
             <label for='nama' class='col-sm-3 col-form-label'>Kode Transaksi</label>
@@ -60,7 +61,8 @@ class Baju extends CI_Controller {
         <div class='form-group row'>
             <label for='nama' class='col-sm-3 col-form-label'>Qty</label>
             <div class='col-sm-9'>
-            <input type='text' name='qty' class='form-control col-2' value='$data->qty' readonly>
+            <input type='number' name='qty' class='form-control col-2' value='$data->qty'>
+            <p class='text text-warning'>* Qty tidak boleh melebihi qty awal.</p>
             </div>
         </div>
         ";

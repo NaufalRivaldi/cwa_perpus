@@ -64,4 +64,11 @@ if (flashData == 'login') {
 		icon: "success",
 		button: "OK",
 	});
+} else if (flashData == 'kembali-lebih') {
+	swal({
+		title: "Error",
+		text: "Qty melebihi batas yang perlu dikembalikan!",
+		icon: "error",
+		button: "OK",
+	});
 }
