@@ -45,7 +45,7 @@
                 </div>
             </div> -->
 
-            <img src="<?= base_url('assets/img/beruang.gif') ?>" alt="" width="30%">
+            
         </div>
     </div>
 
