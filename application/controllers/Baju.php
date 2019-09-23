@@ -101,7 +101,7 @@ class Baju extends CI_Controller {
         echo "Gagal";
     }
 
-    public function edit($id){
+    public function edit($id = null){
         $baju = $this->baju_model;
         $validation = $this->form_validation;
         $validation->set_rules($baju->rules());
